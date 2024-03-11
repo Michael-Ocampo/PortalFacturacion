@@ -1,0 +1,164 @@
+<div class="">
+    <div class="" >
+       <div class="row d-flex justify-content-center text-white fondoNav" style="padding-bottom: 2em;" >
+            <form class="row   g-2" [formGroup]="formFiltros" (ngSubmit)="getFacturas()">
+               <div class="col-lg-12 col-md-12">
+                    <div class="row d-flex justify-content-center">
+                        
+                        <div class="col-sm-10 col-md-10 col-lg-4">
+                            <div class="mb-1 text-center">
+                                <label for="rbFechas" class=" ">Seleccione el tipo de fecha</label>
+                                <div id="rbFechas">
+                                    <div class="form-check form-check-inline " >
+                                        <input formControlName="TipoFecha" class="form-check-input" type="radio" name="TipoFecha" id="fechaEmision" value="1" checked = "checked">
+                                        <label class="form-check-label" for="fechaEmision">Fecha de Emisión</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input formControlName="TipoFecha" class="form-check-input" type="radio" name="TipoFecha" id="fechaTimbrado" value="2">
+                                        <label class="form-check-label" for="fechaTimbrado">Fecha de Timbrado</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-xl-2 col-sm-5  col-md-4  ">
+                            <div class="mb-1">
+                                <label for="RFCEmisor" class="">RFC Emisor</label>
+                                <input formControlName="RFCEmisor" type="text" class="form-control" id="RFCEmisor" placeholder="RFC Emisor">
+                            </div>
+                        </div>
+                        <div class="col-sm-5 col-md-4 col-lg-2">
+                            <div class="mb-1">
+                                <label for="RFCReceptor" class="">RFC Receptor</label>
+                                <input formControlName="RFCReceptor" type="text" class="form-control" id="RFCReceptor" placeholder="RFC Receptor">
+                            </div>
+                        </div>
+                        <div class="col-sm-5  col-md-3 col-lg-2">
+                            <div class="mb-1">
+                                <label for="TipoCFDI" class="">Tipo de CFDI</label>
+                                <select formControlName="TipoCFDI" class="form-select" id="TipoCFDI">
+                                    <option value="A">Todos</option>
+                                    <option value="I">Ingreso</option>
+                                    <option value="E">Egreso</option>
+                                    <option value="P">Pago</option>
+                                    <option value="T">Traslado</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        
+                        <div class="col-lg-4 col-sm-10 col-md-10">
+                            <div class="row">
+                                
+                                <div class="col-6 mb-1">
+                                    <label for="Desde" class="">Desde</label>
+                                    <input formControlName="FechaInicio" type="date" class="form-control" id="Desde" placeholder="Desde">
+                                </div>
+                                <div class="col-6 mb-1">
+                                    <label for="Hasta" class="">Hasta</label>
+                                    <input formControlName="FechaFin" type="date" class="form-control" id="Hasta" placeholder="Hasta">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-4 col-md-4">
+                            <div class="mb-1">
+                                <label for="Serie" class="">Serie</label>
+                                <input formControlName="Serie" type="text" class="form-control" id="Serie" placeholder="Serie">
+                              </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-4 col-md-4">
+                            <div class="mb-1">
+                                <label for="FolioInicial" class="">Del Folio:</label>
+                                <input formControlName="FolioInicio" type="text" class="form-control" id="FolioInicial" placeholder="Del Folio:">
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-4 col-md-4">
+                            <div class="mb-1">
+                                <label for="FolioFinal" class="">Al Folio:</label>
+                                <input formControlName="FolioFin" type="text" class="form-control" id="FolioFinal" placeholder="Al Folio:">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        
+                        <div class="col-lg-4 col-sm-10 col-md-10">
+                            <label for="UUID" class="">UUID</label>
+                            <input formControlName="UUID" type="text" class="form-control" id="UUID" placeholder="UUID">
+                        </div>
+                        <div class="col-lg-2 col-sm-12 col-md-12"></div>
+                        <div class="col-lg-2 col-sm-12 col-md-12"></div>
+                        <div class="col-lg-2 col-sm-12 col-md-12 d-flex justify-content-md-end align-items-center " style="justify-content: center;">
+                            <div class=" justify-content-md-end align-self-end">
+                                <button class="btn buttonLM" type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>  
+                                    Buscar
+                                </button>
+                                &nbsp;
+                                <button class="btn buttonLimpiar" type="button" (click)="limpiarFormulario()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eraser-fill" viewBox="0 0 16 16">
+                                        <path d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm.66 11.34L3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z"/>
+                                      </svg> 
+                                    Limpiar
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="table-responsive  overflow-auto" style=" max-height: 40em; margin-top: 0.em;  margin-left: 0.1em;   margin-right: 0.1em;">
+            <table class="table table-bordered table-hover tableLM" id="tableFacturas" >
+                <thead  class="table-dark">
+                    <tr>
+                        <td>Emisor</td>
+                        <td>Receptor</td>
+                        <td>Serie</td>
+                        <td>Folio</td>
+                        <td>UUID</td>
+                        <td>Fecha Emision</td>
+                        <td>Fecha Timbrado</td>
+                        <td>Total</td>
+                        <td>Tipo CFDI</td>
+                        <td>PDF</td>
+                        <td>XML</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let factura of facturas | slice: (page-1) * pageSize : page * pageSize" >
+                        <td>{{factura.EmisorRFC}}</td>
+                        <td>{{factura.ReceptorRFC}}</td>
+                        <td>{{factura.Serie}}</td>
+                        <td>{{factura.Folio}}</td>
+                        <td style="text-transform: uppercase">{{factura.UUID}}</td>
+                        <td style="text-align: center;">{{factura.FechaEmision}}</td>
+                        <td style="text-align: center;">{{factura.FechaTimbrado}}</td>
+                        <td style="text-align: end;">{{factura.Total | currency}}</td> 
+                        <td style="text-align: center;">{{factura.TipoComprobante}}</td>
+                        <td style="text-align: center;">
+                            <button type="button" class="btnTable " (click)='getPDF(factura.Archivos.PDF, factura.Serie, factura.Folio)' >
+                                <img src="../../../assets/img/PDF.png" style="width: 1.2em;" /> 
+                            </button>
+                        </td>
+                        <td style="text-align: center;">
+                            <button type="button" class="btnTable" (click)='getXML(factura.Archivos.XML, factura.Serie, factura.Folio)'   >
+                                <img src="../../../assets/img/XML.png" style="width: 1.2em;" /> 
+                            </button>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table> 
+            <ngb-pagination aria-label="Default pagination"
+          [(page)]="page"
+          [pageSize]="pageSize"
+          [collectionSize]="facturas.length"></ngb-pagination>
+        
+        
+    </div>
+</div>

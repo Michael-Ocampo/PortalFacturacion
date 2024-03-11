@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Portal de Facturación</title>
+</head>
+
+<body>
+  <div class="d-flex justify-content-center align-items-center vh-80" style="background-color: #4e72ad;">
+    <button *ngIf="Tabla !== 'true'" (click)="MostrarTabla()" class="btn btn-primary"
+      style="border-radius: 15px; min-width: 300px !important; z-index: 20;"
+      class="animate__animated animate__backInLeft btn btn-primary">
+      Agregar Nuevo Usuario
+    </button>
+  </div>
+  <section *ngIf="Tabla == 'true'" class="d-flex justify-content-center align-items-center vh-80"
+    style="background-color: #4e72ad;">
+    <div
+      style="border-radius: 15px; min-width: 300px !important; z-index: 20; background-color: rgba(255, 255, 255, 0.7); padding: 50px; box-shadow: -1px 0 8xp rgba(255, 255, 255, 0.40)"
+      layout="column" layout-align="none none" flex="30" class="layout-align-start-stretch layout-column flex-30">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="animate__animated animate__pulse">
+        <div class="mb-3 text-center fs-1">Alta de Usuarios</div>
+        <div class="mb-3 ">
+          <input id="IdUsuario" name="IdUsuario" type="text" class="form-control bg-light"
+            placeholder="Id Usuario"
+            formControlName="idUsuario"
+            [formControl]="newUsers"
+            autofocus="autofocus">
+        </div>
+        <div class="mb-3">
+          <input id="IdNombre" name="IdNombre" type="text" class="form-control bg-light"
+            formControlName="nombre"
+            [formControl]="newUsersNom"
+             placeholder="Nombre del usuario">
+        </div>
+        <div class="mb-3">
+          <input id="IdRol" name="IdRol" type="text" class="form-control bg-light" placeholder="Rol"
+          [formControl]="newUsersRol"
+            formControlName="rol" >
+        </div>
+        <div class="mb-3">
+          <input id="IdCorreo" name="CorreoUsiario" type="text" class="form-control bg-light" placeholder="Correo"
+          [formControl]="newUsersEmail"
+            formControlName="email" >
+        </div>
+        <div class="mb-3">
+          <input id="IdContrasena" name="Contrasena" type="text" class="form-control bg-light" placeholder="Contraseña"
+          [formControl]="newUsersPass"
+            formControlName="password" >
+        </div>
+        <div class="mb-3">
+          <input id="IdConfContrasena" name="ConfContrasena" type="text" class="form-control bg-light"
+            formControlName="passwordConfirm" [formControl]="newUsersConPass" placeholder="Confirmar Contraseña">
+        </div>
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label">RFC Compañia</label>
+          <select id="disabledSelect" class="form-select" formControlName="RFC" [formControl]="newUsersRFC" >
+            <option>Selecciona el RFC</option>
+            <option>PAM781201CW0</option>
+            <option>PCO8211161W1</option>
+            <option>IBI790703DX4</option>
+            <option>MFE3410277SA</option>
+            <option>MOF880428F53</option>
+            <option>CMT9309039C8</option>
+            <option>PCO880928RD1</option>
+            <option>MSU850911A56</option>
+            <option>FGM790801SD7</option>
+            <option>PPL8012295V2</option>
+            <option>GMO790905GK1</option>
+            <option>CMO881228RR9</option>
+            <option>TER800616EB9</option>
+            <option>RIM010918JW6</option>
+            <option>HPI880624SW5</option>
+          </select>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <!-- <input type="text" class="form-control"
+            [formControl] = "newUsers"> -->
+          <button (click)="onAddUsuarios()" type="submit" class="btn btn-primary animate__animated animate__rollIn"
+            style="border-radius: 15px; left: 5px;">
+            Agregar
+          </button>
+          <button *ngIf="Tabla == 'true'" (click)="BtnCancelar()"
+            class="btn btn-primary animate__animated animate__rollIn" style="border-radius: 15px;">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <hr>
+  <!-- <section *ngIf="Tabla == 'true'">
+    <table id="transactionTable" class="table table-bordered border-primary"
+      style="margin: auto; width: fit-content; border-style: solid;" #Tabla>
+      <thead class="table-secondary">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Id Usuario</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Rol</th>
+          <th scope="col">Correo</th>
+          <th scope="col">RFC Compañia</th>
+        </tr>
+      </thead>
+       <tbody>
+        <tr>
+          <th row ="1">1</th>
+          <td >{{ myForm.value.idUsuario}} </td>
+          <td >{{ myForm.value.nombre}}</td>
+          <td>{{ myForm.value.rol}}</td>
+          <td>{{ myForm.value.email}}</td>
+          <td>{{ myForm.value.RFC}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section> -->
+
+  <!-- Lista de Usuarios -->
+  <section *ngIf="Tabla == 'true'">
+    <table id="transactionTable" class="table table-bordered border-primary"
+      style="margin: auto; width: fit-content; border-style: solid;" #Tabla>
+      <thead class="table-secondary">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Id Usuario</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Rol</th>
+          <th scope="col">Correo</th>
+          <th scope="col">RFC Compañia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr>
+          <th row ="1">1</th>
+          <td >{{ newUsers.value}}</td>
+          <td >{{ newUsersNom.value}}</td>
+          <td>{{ newUsersRol.value}}</td>
+          <td>{{ newUsersEmail.value}}</td>
+          <td>{{ newUsersRFC.value}}</td>
+        </tr> -->
+        <tr>
+          <th row ="1">1</th>
+          <td >{{ myForm.controls['idUsuario'].errors | json }}</td>
+          <td >{{ myForm.controls['nombre'].errors | json }}</td>
+          <td>{{ myForm.value.rol | json }}</td>
+          <td>{{ myForm.controls['email'].errors | json }}</td>
+          <td>{{ myForm.value.RFC | json }}</td>
+        </tr>
+      </tbody>
+    </table>

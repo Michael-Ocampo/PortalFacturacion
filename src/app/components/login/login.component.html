@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="row align-items-center vh-100">
+        <div class="col-lg-8 offset-lg-2 LoginForm">
+            <div class="row">
+                <div class="col-md-4 loginImg row align-items-center ">
+                    <div class="container col-md-12">
+                        <img src="../../../assets/img/LaModerna.bmp" class="img mx-auto d-block" alt="...">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title text-center" id="title">Acceso al Portal</h3>
+                        <form class="row g-3" [formGroup]="formLogin" (ngSubmit)="doLogin()">
+                            <div class="form-floating mb-3">
+                                <input formControlName="usuario" type="text" class="form-control" id="floatingInput" placeholder="Usuario" required>
+                                <label for="floatingInput">Usuario</label>
+                            </div>
+                            <div class="form-floating">
+                                <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                                <label for="floatingPassword">Password</label>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success">Entrar</button>
+                                <p class="card-text" id="recPass"><a href="">Recuperar contraseña</a></p>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

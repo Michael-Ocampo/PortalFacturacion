@@ -1,0 +1,116 @@
+<!-- Vertical navbar -->
+
+<div class="">
+    <div class="" >
+<div class="page-content p-5" id="content">
+    <form class="row g-3" [formGroup]="formFactura" (ngSubmit)="uploadFile()">
+        <div class="col-lg-12 col-md-12">
+            <div class="col-6">
+                <div class="mb-3">
+                    <input type="file" name="xmlSAP" id="xmlFile" (change)="onFileChange($event)" formControlName="xmlSAP" class="file" required>
+                    <!-- <div class="d-flex">
+                        <input type="text" name="file-name" id="file-name" class="file-name" readonly="readonly">
+                        <input type="button" class="btnFile" value="select">
+                      </div> -->
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="mb-3 " >
+                            <label for="Serie" class="form-label">Serie</label>
+                            <input formControlName="Serie" type="text" class="form-control" id="Serie" placeholder="Serie de la Factura" required>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="mb-3 ">
+                            <label for="Folio" class="form-label">Folio</label>
+                            <input formControlName="Folio" type="text" class="form-control" id="Folio" placeholder="Folio de la Factura" required>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="NoCliente" class="form-label">Número de cliente</label>
+                            <input formControlName="NoCliente" type="text" class="form-control" id="NoCliente" placeholder="Número de cliente" required>
+                            
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="SalesOrder" class="form-label">Orden de Venta</label>
+                            <input formControlName="SalesOrder" type="text" class="form-control" id="SalesOrder" placeholder="Orden de Venta" required>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="ASN" class="form-label">ASN</label>
+                            <input formControlName="ASN" type="text" class="form-control" ASN="ASN" placeholder="ASN" required>
+                            
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="OC" class="form-label">OC</label>
+                            <input formControlName="OC" type="text" class="form-control" id="V" placeholder="OC" required>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="Tarimas" class="form-label">Tarimas</label>
+                            <input formControlName="Tarimas" type="text" class="form-control" ASN="Tarimas" placeholder="Tarimas" required>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="ShipTo" class="form-label">ShipTo</label>
+                    <input formControlName="ShipTo" type="text" class="form-control" id="ShipTo" placeholder="ShipTo" required>
+                    
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="DirEntrega" class="form-label">Dirección de entrega</label>
+                    <input formControlName="DirEntrega" type="text" class="form-control" id="DirEntrega" placeholder="DirEntrega" required>
+                    
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="Kilos" class="form-label">Kilos</label>
+                    <input formControlName="Kilos" type="text" class="form-control" id="Kilos" placeholder="Ejemplo: 100,2,348" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 justify-content-md-end d-flex align-items-center">
+            <div class=" justify-content-md-end ">
+                <button class="btn btn-primary" type="submit">Enviar</button>
+              </div>
+        </div>
+    </form>
+
+</div>
+
+
+    </div></div>

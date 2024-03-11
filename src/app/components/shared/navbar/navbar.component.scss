@@ -1,0 +1,240 @@
+.chevron::before {
+    border-style: solid;
+    border-width: 0.15em 0.15em 0 0;
+    content: "";
+    display: inline-block;
+    height: 0.95em;
+    left: 0.15em;
+    position: relative;
+    top: 0.3em;
+    vertical-align: top;
+    width: 0.95em;
+  }
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+  
+    height: 100vh;
+    transition: 0.3s;
+  
+    width: 60px;
+    .media-body{
+      display:none ;
+    }
+    .dividerSlide{
+      display:none ;
+    }
+
+    &.expanded {
+      width: 17rem;
+      
+      .header {
+        justify-content: end;
+        border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-bottom-color: #fdcb38;
+        h1 {
+          margin-left: 0px;
+        }
+        .chevron {
+          margin-left: 0px;
+          &::before {
+            transform: rotate(-135deg);
+          }
+        }
+        .media-body{
+          margin-left: 0px;
+          display: block;
+        }
+      }
+      .content {
+        
+        .link {
+          .content {
+            .title {
+              max-width: 160px;
+            }
+            .icon {
+              margin-right: 3px;
+            }
+          }
+          .children {
+            .content {
+              padding-left: 30px;
+            }
+          }
+        }
+        .dividerSlide{
+          display:block ;
+        }
+      }
+    }
+  
+    background: #4e72ad;
+    // background: linear-gradient(0deg, rgba(0,54,125,1) 0%, rgba(21,84,150,1) 50%, rgba(83,117,175,1) 100%) !important;
+    color: #fff;
+  
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      height: 3em;
+      background: #4e72ad;
+      border-bottom-style: solid;
+      border-bottom-width: thin;
+      border-bottom-color: #fdcb38;
+      h1 {
+        font-size: 20px;
+        color: #6d6e7e;
+        margin: 0;
+        flex: 1;
+        transition: 0.3s;
+  
+        margin-left: -100px;
+      }
+      .media-body{color: #6d6e7e;}
+
+      
+  
+      .chevron {
+        color: #fdcb38;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-left: -15px;
+  
+        // padding: 10px;
+        min-width: 20px;
+        height: 20px;
+        display: block;
+        text-align: center;
+  
+        &::before {
+          transition: 0.3s;
+          transform: rotate(45deg);
+        }
+  
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  
+    .content {
+      .link {
+        .children {
+          .content {
+            background: rgb(167, 179, 194);
+            // padding-left: 30px;
+            padding-left: 10px;
+  
+            &.active {
+              background: rgb(167, 179, 194);
+            }
+          }
+        }
+        .content {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px;
+  
+          cursor: pointer;
+  
+          transition: 0.3s;
+  
+          &:hover {
+            background: rgb(167, 179, 194);
+            .title {
+              color: white;
+            }
+            svg {
+              fill: white;
+            }
+          }
+  
+          &.active {
+            background: #7d98b9;
+            .title {
+              color: white;
+            }
+          }
+  
+          .icon {
+            flex: 0 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0px;
+          }
+          .title {
+            flex: 1;
+            // display: none;
+            color: #fff;
+            transition: 0.3s;
+            max-width: 0px;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    
+  }
+
+  .footHeader{
+    position: fixed;
+    bottom: 1em;
+    left: 2em;
+
+    a{
+      text-decoration: none;
+      color: #fff;
+      overflow: hidden;
+      font-size: large;
+    }
+
+    .iconLogOut {
+      flex: 0 0 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0px;
+    }
+    .titleLogOut {
+      flex: 1;
+      // display: none;
+      color: #fff;
+      transition: 0.3s;
+      max-width: 0px;
+      overflow: hidden;
+    }
+}
+  
+
+.shareHeader{
+  background: #4e72ad;
+  border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-bottom-color: #fdcb38;
+    // position: sticky;
+    // top: 0;
+  max-width: 100%;
+  max-height: 3em;
+    height: 3em;
+  .contenido{
+    margin-left: 6em;
+  }
+  .logout{
+    margin-right: 0em;
+  }
+  &.expanded {
+    .contenido{
+      margin-left: 19em;
+    }    
+    .logout{
+      margin-right: 0em;
+    }
+  }
+  
+}

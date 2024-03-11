@@ -1,0 +1,107 @@
+<div class="sidebar" *ngIf="isLoggedIn$ | async as isLoggedIn"  [ngClass]="{ 'expanded': isExpanded }">
+	<div class="header">
+	  <!-- <div class="py-4 px-3 mb-4 bg-light headerH">
+		<div class="media d-flex align-items-center">
+			<div class="media-body">
+				
+				<h4 class="m-0" *ngIf="Usuario$| async as user">{{user.Nombre}}</h4>
+				<p class="font-weight-light text-muted mb-0">Usuario</p>
+				
+			</div>
+			
+		</div>
+	</div> -->
+	  <div class="toggle" (click)="handleSidebarToggle()">
+		<span class="chevron"></span>
+	  </div>
+	</div>
+	<div class="content" style="margin-top: 1em;">
+	<p class="text-info font-weight-bold text-uppercase px-3 small pb-2 mb-0 dividerSlide">Principal</p>
+
+	  <div class="link" title="Facturas">
+		<div class="content" [routerLink]="['../inicio']" [routerLinkActive]="'active'">
+		  <div class="icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16">
+				<path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z"/>
+				<path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/>
+			  </svg>
+		  </div>
+		  <div class="title">Facturas</div>
+		</div>
+	  </div>
+
+	  <div class="link" title="Timbrado Emergenre">
+		<div class="content" [routerLink]="['../timbrado']" [routerLinkActive]="'active'">
+		  <div class="icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+				<path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+				<path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+			</svg>
+		  </div>
+		  <div class="title">Timbrado Emergente</div>
+		</div>
+	  </div>
+
+	   <p class="text-info font-weight-bold text-uppercase px-3 small pb-2 mb-0 dividerSlide">Administración</p>
+	  
+	  <div class="link" title="Usuarios">
+		<div class="content" [routerLink]="['../usuarios']" [routerLinkActive]="'active'">
+		  <div class="icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+				<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+				<path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+				<path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+			  </svg>
+		  </div>
+		  <div class="title">Usuarios</div>
+		</div>
+	  </div>
+
+	  <div class="link" title="Correos" *ngIf="hasPermisoCorreos$ | async as hasPermisoCorreos">
+		<div class="content" [routerLink]="['../correosclientes']" [routerLinkActive]="'active'">
+		  <div class="icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+				<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+			  </svg>
+		  </div>
+		  <div class="title">Correos por Cliente</div>
+		</div>
+	  </div> 
+
+
+	</div>
+	<div class="footer">
+		
+  </div>
+  
+  
+</div>
+<div class="shareHeader" *ngIf="isLoggedIn$ | async as isLoggedIn" [ngClass]="{ 'expanded': isExpanded }">
+	
+	<div class="contenido " style="max-width: 100% !important;">
+		<div class=" ">
+			<div class="row align-items-center" style="max-width: 100% !important;  padding-top: 0.5em; min-height: 5vh;">
+				<div class="col">
+					<h5 style="color: #fdcb38;" class="tittleHeader">Portal de facturación</h5>
+				  </div>
+				<div class="col-auto logout">
+					<div class="float-right">
+						
+						 <a  (click)='logOut()'>
+							<span class="iconLogOut" title="Salir" style="color: #fdcb38;">
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+									<path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
+									<path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+								</svg>
+							</span>		  
+							</a> 
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+	
+	</div>

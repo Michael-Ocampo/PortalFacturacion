@@ -1,0 +1,3 @@
+function Prueba(){
+    alert("Prueba");
+}

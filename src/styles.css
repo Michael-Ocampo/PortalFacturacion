@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+/* .page-item{
+    display:none;
+  }
+  .page-item:nth-child(1){
+    display:block;
+  }
+  .page-item:last-child{
+    display:block;
+  } */
+
+  ngb-pagination ul li a .sr-only {
+	display: none;
+}

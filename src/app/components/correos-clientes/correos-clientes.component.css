@@ -1,0 +1,9 @@
+@import '../../app.component.css';
+
+.editMode{
+    display: none;
+}
+
+.editModeInput{
+    display: block !important;
+}

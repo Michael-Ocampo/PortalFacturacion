@@ -1,0 +1,24 @@
+.LoginForm {
+    border: solid 1px #d6dfee;
+    border-radius: 20px;
+    color: #344998;
+}
+
+.loginImg {
+    background-color: #155496;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .4);
+}
+
+.loginImg img {
+    width: 100%;
+}
+
+#title {
+    margin-bottom: 2.5rem !important;
+}
+
+#recPass {
+    margin-top: 1.5rem;
+}
